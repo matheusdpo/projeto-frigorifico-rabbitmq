@@ -1,6 +1,5 @@
-package br.com.frigorificos.pedidos.api.confg;
+package br.com.frigorificos.pedidos.api.v1.config;
 
-import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
@@ -16,11 +15,11 @@ public class SpringDocOpenApiConfig {
         return new OpenAPI()
                 .info(
                         new Info()
-                                .title("Rest API - Pedidos")
-                                .description("API para realização de pedidos")
+                                .title("Rest API - Envio de pedidos JBS")
+                                .description("API para Envio de pedidos JBS")
                                 .version("v1.0.0")
                                 .license(new License().name("Apache 2.0").url("https://www.apache.org/licenses/LICENSE-2.0"))
-                                .contact(new Contact().name("Wendel Segadilha").email("wendelsegadilha99@gmail.com"))
+                                .contact(new Contact().name("Matheus Oliveira").email("my@mail.com"))
                 );
     }
 }
