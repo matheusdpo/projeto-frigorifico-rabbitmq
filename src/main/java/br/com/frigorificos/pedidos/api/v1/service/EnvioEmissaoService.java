@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PedidoService {
+public class EnvioEmissaoService {
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
@@ -21,7 +21,7 @@ public class PedidoService {
 
     public PainelDTO enfileirarEmissoes(PainelDTO painelDTO) {
         rabbitTemplate.convertAndSend(exchangeName, "", painelDTO);
-        logger.info("Pedido enfileirado: " + painelDTO.toString());
+        logger.info("Pedido enfileirado: " + painelDTO.numeroNotaFiscal());
         return painelDTO;
     }
 }

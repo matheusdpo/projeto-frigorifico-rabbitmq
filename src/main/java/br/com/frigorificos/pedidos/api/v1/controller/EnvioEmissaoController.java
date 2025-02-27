@@ -2,12 +2,11 @@ package br.com.frigorificos.pedidos.api.v1.controller;
 
 import br.com.frigorificos.pedidos.api.v1.dto.PainelDTO;
 import br.com.frigorificos.pedidos.api.v1.model.ResponsePedidoEnfileiradoModel;
-import br.com.frigorificos.pedidos.api.v1.service.PedidoService;
+import br.com.frigorificos.pedidos.api.v1.service.EnvioEmissaoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springdoc.core.annotations.RouterOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,17 +20,17 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name = "Pedidos", description = "Contém a operação para realização de pedidos")
 @RestController
 @RequestMapping("/api/v1/")
-public class PedidoController {
+public class EnvioEmissaoController {
 
     @Autowired
-    private PedidoService pedidoService;
+    private EnvioEmissaoService envioEmissaoService;
 
     @RouterOperation(operation = @Operation(description = "Say hello", operationId = "hello", tags = "persons",
             responses = @ApiResponse(responseCode = "200", content = @Content(schema = @Schema(implementation = PainelDTO.class)))))
     @PostMapping("/enviarFila")
     public ResponseEntity<?> init(@RequestBody PainelDTO painelDTO) {
         try {
-            pedidoService.enfileirarEmissoes(painelDTO);
+            envioEmissaoService.enfileirarEmissoes(painelDTO);
 
             return ResponseEntity
                     .status(HttpStatus.OK)
