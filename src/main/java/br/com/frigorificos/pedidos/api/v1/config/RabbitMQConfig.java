@@ -1,9 +1,7 @@
-package br.com.frigorificos.pedidos.api.confg;
+package br.com.frigorificos.pedidos.api.v1.config;
 
-import jakarta.validation.Valid;
 import org.springframework.amqp.core.Exchange;
 import org.springframework.amqp.core.FanoutExchange;
-import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
